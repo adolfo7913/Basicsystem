@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<link rel="stylesheet" type="text/css" href="css/inicio.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Yantramanav' rel='stylesheet'>
+<title>Registro de personas</title>
+</head>
+<body>
+
+<ul>
+  <li><a href="inicio.html">Inicio</a></li>
+  <li><a href="listado.php">Listado de usuarios</a></li>
+  <li><a class="active" href="alta.html">Alta de usuarios</a></li>
+  <li><a href="editar.php">Edición de usuarios</a></li>
+  <li><a href="baja.php">Baja de usuarios</a></li>
+  <li><a href="#" onclick="salir();">Salir</a></li>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:100%;">
+  <h4>Hola <label id="usuario_text"></label>, por favor rellene los campos solicitados para el registro.</h3><br><br>
+  <form action="php/alta.php" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Nombre/s</label>
+      <input type="text" class="form-control" id="nombre_p" placeholder="Nombre/s" name="nombre">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Apellido Paterno</label>
+      <input type="text" class="form-control" id="apellido_p" placeholder="Apellido Paterno" name="apellido_p">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Apellido Materno</label>
+      <input type="text" class="form-control" id="apellido_m" placeholder="Apellido Materno" name="apellido_m">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Telefono</label>
+      <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Dirección</label>
+    <input type="text" class="form-control" id="direccion" placeholder="Av. Principal" name="direccion">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputState">Facebook</label>
+      <input type="text" class="form-control" id="facebook" name="facebook">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Twitter</label>
+      <input type="text" class="form-control" id="twitter" name="twitter">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Instagram</label>
+      <input type="text" class="form-control" id="instagram" name="instagram">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Realizar registro</button>
+</form>
+
+</div>
+</body>
+<script>
+    let usuario = localStorage.getItem('nombre_usuario');
+    console.log(usuario);
+    document.getElementById("usuario_text").innerHTML= usuario;
+    function salir(){
+      localStorage.clear();
+      window.location="index.html";
+    }
+</script>
+</html>
